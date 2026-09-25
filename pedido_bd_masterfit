@@ -1,0 +1,17 @@
+CREATE TABLE pedido(
+ id_usuario SERIAL PRIMARY KEY,
+ id_clientre int not null,
+ id_endereco_entrega int not null,
+ id_cupom int,
+ status_pedido status_pedido_enum varchar(255) not null,
+ valor_subtotal decimal(10,2) not null,
+ valor_desconto decimal(10,2),
+ valor_total decimal(10,2),
+ data_pedido timestamp
+ );
+
+
+ SELECT * FROM usuario;
+
+
+ INSERT INTO usuario (nome,email) VALUES ('murilo', 'murilo.nascimento.silva26@escola.pr.gov.br');
