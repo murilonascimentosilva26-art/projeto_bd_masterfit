@@ -11,12 +11,12 @@ CREATE TABLE pedido(
  );
 
 
- SELECT * FROM pedido;
+  SELECT * FROM pedido;
 
 
- INSERT INTO pedido (nome,email) VALUES ('murilo', 'murilo.nascimento.silva26@escola.pr.gov.br');
+  INSERT INTO pedido (nome,email) VALUES ('murilo', 'murilo.nascimento.silva26@escola.pr.gov.br');
 
- CREATE TABLE item_pedido(
+  CREATE TABLE item_pedido(
   id_item_pedido SERIAL PRIMARY KEY,
   id_pedido int not null,
   id_suplemento int not null,
@@ -24,12 +24,31 @@ CREATE TABLE pedido(
   preco_unitario decimal (10,2) not null
   );
 
-  SELECT * FROM item_pedido;
+    SELECT * FROM item_pedido;
 
-  CREATE TABLE suplemento_favorito(
+    CREATE TABLE suplemento_favorito(
 
-  id_favorito SERIL PRIMARY KEY,
-  id_usuario int not null,
-  id_suplemento int not null,
-  data_adicao timestamp
-  );
+    id_favorito SERIAL PRIMARY KEY,
+    id_usuario int not null,
+    id_suplemento int not null,
+    data_E TABLE id_endereco(
+    
+    id_endereco SERIAL PRIMARY KEY,
+    id_usuario int not null,
+…adicao timestamp
+    );
+
+    CREATE TABLE id_endereco(
+    
+    id_endereco SERIAL PRIMARY KEY,
+    id_usuario int not null,
+    cep varchar (8) not null,
+    logradouro varchar (150) not null,
+    numero varchar (20),
+    bairro varchar (100) not null,
+    cidade varchar (100) not null,
+    estado varchar(2) not null,
+    eh_principal boolean
+    );
+
+    SELECT * FROM id_endereco;
