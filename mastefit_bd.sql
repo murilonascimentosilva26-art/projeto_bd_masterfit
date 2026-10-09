@@ -50,3 +50,17 @@ CREATE TABLE usuario(
   id_suplemento int not null,
   data_adicao timestamp
   );
+ CREATE TABLE id_endereco(
+    
+    id_endereco SERIAL PRIMARY KEY,
+    id_usuario int not null,
+    cep varchar (8) not null,
+    logradouro varchar (150) not null,
+    numero varchar (20),
+    bairro varchar (100) not null,
+    cidade varchar (100) not null,
+    estado varchar(2) not null,
+    eh_principal boolean
+    );
+
+    SELECT * FROM id_endereco;
