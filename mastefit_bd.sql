@@ -70,7 +70,7 @@ CREATE TABLE usuario(
     codigo_cupom varchar(30) not null,
     porcentual_desconto decimal(5,2),
     valor_desconto_fixo decimal(10,2),
-    data_validade timestamp not null, 
+    data_validade timestamp not null
     );
 
 CREATE TABLE diario_alimentar(
@@ -87,13 +87,15 @@ CREATE TABLE diario_alimentar(
 CREATE TABLE suplemento(
   id_suplemento SERIAL PRIMARY KEY,
   nome varchar(150),
-  descricao text
+  descricao text,
   peso_kg varchar(30),
   preco_unitario decimal(10,2),
-  quantidade_estoque int
+  quantidade_estoque int,
   url_imagem varchar(255),
   ativo boolean
 );
+
+
   create table public.notificacao_push (
   id_notificacao int not null,
   id_usuario int not null,
