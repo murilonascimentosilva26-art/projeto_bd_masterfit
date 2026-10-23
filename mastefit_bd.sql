@@ -17,7 +17,7 @@ CREATE TABLE usuario(
 
   CREATE TABLE pedido(
  id_usuario SERIAL PRIMARY KEY,
- id_cliente int not null,
+ id_clientre int not null,
  id_endereco_entrega int not null,
  id_cupom int,
  status_pedido status_pedido_enum varchar(255) not null,
@@ -65,8 +65,8 @@ CREATE TABLE usuario(
  CREATE TABLE id_endereco(
     
   id_endereco SERIAL PRIMARY KEY,
-  id_usuario int not null,
-  0cep varchar (8) not null,
+   id_usuario int not null,
+  cep varchar (8) not null,
   logradouro varchar (150) not null,
   numero varchar (20),
   bairro varchar (100) not null,
@@ -146,4 +146,17 @@ CREATE TABLE public.notificacao_push (
   enviada boolean null,
   data_envio timestamp null,
   constraint notificacao_push_pkey primary key (id_notificacao)
+);
+  INSERT INTO public.notificacao_push (id_notificacao, id_usuario, titulo, mensagem, tipo_notificacao, data_agendamento, enviada, data_envio) VALUES (
+    1, 101, 'Desconto Imperdível!', 'Use o cupom APP20 e ganhe 20% de desconto na sua próxima compra.', 'promocional', '2026-10-23 09:00:00', true, '2026-10-23 09:01:15'
+);
+  INSERT INTO public.notificacao_push (
+    id_notificacao, id_usuario, titulo, mensagem, tipo_notificacao, data_agendamento, enviada, data_envio
+) VALUES (
+    2, 102, 'Lembrete de Aula', 'Sua mentoria de SQL começa em 15 minutos. Não se atrase!', 'alerta', '2026-10-24 14:45:00', null, null
+);
+  INSERT INTO public.notificacao_push (
+    id_notificacao, id_usuario, titulo, mensagem, tipo_notificacao, data_agendamento, enviada, data_envio
+) VALUES (
+    3, 103, 'Nova mensagem recebida', 'Você recebeu uma nova mensagem de João no seu chat.', 'atualizacao', '2026-10-23 10:30:00', true, '2026-10-23 10:30:05'
 );
