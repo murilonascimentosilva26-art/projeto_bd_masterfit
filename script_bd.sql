@@ -45,8 +45,8 @@ CREATE TABLE usuario(
 
   CREATE TABLE suplemento_favorito(
   id_favorito SERIAL PRIMARY KEY,
-  id_usuario int not null,
-  id_suplemento int not null,
+  id_usuario int NOT.NULL,
+  id_suplemento int NOT.NULL,
   data_adicao timestamp
   );
   
@@ -74,6 +74,7 @@ CREATE TABLE usuario(
   );
 
     SELECT * FROM id_endereco;
+    
   CREATE TABLE cupom_desconto(
     id_cupom SERIAL PRIMARY KEY,
     codigo_cupom varchar(30) not null,
@@ -160,8 +161,8 @@ CREATE TABLE public.notificacao_push (
 );
 CREATE TABLE alimentos(
   id_alimentos SERIAL PRIMARY KEY,
-  id_nome varchar(120),
-  id_porcao_padrao_gramas decimal(8,2),
-  id_calorias_base decimal(8,2),
-  id_proteinas_g decimal (6,2)
+  fk_nome varchar(120),
+  fk_porcao_padrao_gramas decimal(8,2),
+  fk_calorias_base decimal(8,2),
+  fk_proteinas_g decimal (6,2)
 );
