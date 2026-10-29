@@ -17,8 +17,8 @@ CREATE TABLE usuario(
 
   CREATE TABLE pedido(
  id_usuario SERIAL PRIMARY KEY,
- id_clientre int NOT.NULL,
- id_endereco_entrega int NOT.NULL,
+ fk_cliente int NOT.NULL,
+ fk_endereco_entrega int NOT.NULL,
  id_cupom int,
  status_pedido status_pedido_enum varchar(255) NOT.NULL,
  valor_subtotal decimal(10,2) not null,
@@ -35,8 +35,8 @@ CREATE TABLE usuario(
 
  CREATE TABLE item_pedido(
   id_item_pedido SERIAL PRIMARY KEY,
-  id_pedido int not null,
-  id_suplemento int not null,
+  fk_pedido int not null,
+  fk_suplemento int not null,
   quantidade int not null,
   preco_unitario decimal (10,2) not null
   );
@@ -45,8 +45,8 @@ CREATE TABLE usuario(
 
   CREATE TABLE suplemento_favorito(
   id_favorito SERIAL PRIMARY KEY,
-  id_usuario int NOT.NULL,
-  id_suplemento int NOT.NULL,
+  fk_usuario int NOT.NULL,
+  fk_suplemento int NOT.NULL,
   data_adicao timestamp
   );
   
@@ -63,7 +63,7 @@ CREATE TABLE usuario(
 
  CREATE TABLE id_endereco(
   id_endereco SERIAL PRIMARY KEY,
-   id_usuario int not null,
+   fk_usuario int not null,
   cep varchar (8) not null,
   logradouro varchar (150) not null,
   numero varchar (20),
@@ -95,8 +95,8 @@ CREATE TABLE usuario(
 
 CREATE TABLE diario_alimentar(
   id_registro SERIAL PRIMARY KEY,
-  id_usuario int not null,
-  id_alimento int not null,
+  fk_usuario int not null,
+  fk_alimento int not null,
   categoria_refeicao varchar(255) not null,
   quantidad_gramas decimal(8,2) not null,
   calorias_calculadas decimal(8,2) not null,
@@ -137,7 +137,7 @@ CREATE TABLE suplemento(
   
 CREATE TABLE public.notificacao_push (
   id_notificacao int not null,
-  id_usuario int not null,
+  fk_usuario int not null,
   titulo varchar(100) not null,
   mensagem text not null,
   tipo_notificacao varchar(100) not null,
