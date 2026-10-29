@@ -1,10 +1,10 @@
 CREATE TABLE usuario(
  id_usuario SERIAL PRIMARY KEY,
- nome varchar(100)not.null,
- email varchar(100)not.null,
- senha_hash varchar(255)not.null,
- data_nascimento (date)not.null,
- tipo_perfil varchar(255)not.null,
+ nome varchar(100) NOT.NULL,
+ email varchar(100) NOT.NULL,
+ senha_hash varchar(255) NOT.NULL,
+ data_nascimento (date) NOT.NULL,
+ tipo_perfil varchar(255)NOT.NULL,
  fcm_toke varchar(255),
  data_cadastro timestamp
  );
@@ -17,10 +17,10 @@ CREATE TABLE usuario(
 
   CREATE TABLE pedido(
  id_usuario SERIAL PRIMARY KEY,
- id_clientre int not null,
- id_endereco_entrega int not null,
+ id_clientre int NOT.NULL,
+ id_endereco_entrega int NOT.NULL,
  id_cupom int,
- status_pedido status_pedido_enum varchar(255) not null,
+ status_pedido status_pedido_enum varchar(255) NOT.NULL,
  valor_subtotal decimal(10,2) not null,
  valor_desconto decimal(10,2),
  valor_total decimal(10,2),
@@ -44,8 +44,7 @@ CREATE TABLE usuario(
   SELECT * FROM item_pedido;
 
   CREATE TABLE suplemento_favorito(
-
-  id_favorito SERIL PRIMARY KEY,
+  id_favorito SERIAL PRIMARY KEY,
   id_usuario int not null,
   id_suplemento int not null,
   data_adicao timestamp
@@ -63,7 +62,6 @@ CREATE TABLE usuario(
   SELECT * FROM suplemento_favorito
 
  CREATE TABLE id_endereco(
-    
   id_endereco SERIAL PRIMARY KEY,
    id_usuario int not null,
   cep varchar (8) not null,
@@ -81,7 +79,7 @@ CREATE TABLE usuario(
     codigo_cupom varchar(30) not null,
     porcentual_desconto decimal(5,2),
     valor_desconto_fixo decimal(10,2),
-    data_validade timestamp not null, 
+    data_validade timestamp not null
   );
    INSERT INTO cupom_desconto (codigo_cupom, porcentual_desconto, valor_desconto_fixo, data_validade)
   VALUES ('BEMVINDO10', 10.00, NULL, '2027-12-31 23:59:59');
@@ -118,7 +116,7 @@ CREATE TABLE diario_alimentar(
 CREATE TABLE suplemento(
   id_suplemento SERIAL PRIMARY KEY,
   nome varchar(150),
-  descricao text
+  descricao text,
   peso_kg varchar(30),
   preco_unitario decimal(10,2),
   quantidade_estoque int
@@ -159,4 +157,11 @@ CREATE TABLE public.notificacao_push (
     id_notificacao, id_usuario, titulo, mensagem, tipo_notificacao, data_agendamento, enviada, data_envio
 ) VALUES (
     3, 103, 'Nova mensagem recebida', 'Você recebeu uma nova mensagem de João no seu chat.', 'atualizacao', '2026-10-23 10:30:00', true, '2026-10-23 10:30:05'
+);
+CREATE TABLE alimentos(
+  id_alimentos SERIAL PRIMARY KEY,
+  id_nome varchar(120),
+  id_porcao_padrao_gramas decimal(8,2),
+  id_calorias_base decimal(8,2),
+  id_proteinas_g decimal (6,2)
 );
