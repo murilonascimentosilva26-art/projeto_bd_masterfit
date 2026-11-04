@@ -1,10 +1,10 @@
 CREATE TABLE usuario(
  id_usuario SERIAL PRIMARY KEY,
- nome varchar(100) NOT.NULL,
- email varchar(100) NOT.NULL,
- senha_hash varchar(255) NOT.NULL,
- data_nascimento (date) NOT.NULL,
- tipo_perfil varchar(255)NOT.NULL,
+ nome varchar(100) NOT NULL,
+ email varchar(100) NOT NULL,
+ senha_hash varchar(255) NOT NULL,
+ data_nascimento (date) NOT NULL,
+ tipo_perfil varchar(255)NOT NULL,
  fcm_toke varchar(255),
  data_cadastro timestamp
  );
@@ -17,10 +17,10 @@ CREATE TABLE usuario(
 
   CREATE TABLE pedido(
  id_usuario SERIAL PRIMARY KEY,
- fk_cliente int NOT.NULL,
- fk_endereco_entrega int NOT.NULL,
+ fk_cliente int NOT NULL,
+ fk_endereco_entrega int NOT NULL,
  fk_cupom int,
- status_pedido status_pedido_enum varchar(255) NOT.NULL,
+ status_pedido status_pedido_enum varchar(255) NOT NULL,
  valor_subtotal decimal(10,2) not null,
  valor_desconto decimal(10,2),
  valor_total decimal(10,2),
@@ -45,8 +45,8 @@ CREATE TABLE usuario(
 
   CREATE TABLE suplemento_favorito(
   id_favorito SERIAL PRIMARY KEY,
-  fk_usuario int NOT.NULL,
-  fk_suplemento int NOT.NULL,
+  fk_usuario int NOT NULL,
+  fk_suplemento int NOT NULL,
   data_adicao timestamp
   );
   
@@ -159,15 +159,11 @@ CREATE TABLE public.notificacao_push (
 ) VALUES (
     3, 103, 'Nova mensagem recebida', 'Você recebeu uma nova mensagem de João no seu chat.', 'atualizacao', '2026-10-23 10:30:00', true, '2026-10-23 10:30:05'
 );
-CREATE TABLE alimento(
-  id_alimento SERIAL PRIMARY KEY,
-  nome varchar(120) not null ,
-  porcao_padrao_gramas decimal(8,2) not null ,
-  calorias_base decimal(8,2) not null ,
-  proteinas_g decimal (6,2),
-  carboidratos_g decimal(6,2),
-  gorduras_g decimal(6,2),
-  criado_por_admin INT
- );
+CREATE TABLE alimentos(
+  id_alimentos SERIAL PRIMARY KEY,
+  fk_nome varchar(120),
+  fk_porcao_padrao_gramas decimal(8,2),
+  fk_calorias_base decimal(8,2),
+  fk_proteinas_g decimal (6,2)
+);
 
- 
