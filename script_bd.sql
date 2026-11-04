@@ -43,11 +43,14 @@ CREATE TABLE usuario(
 
   SELECT * FROM item_pedido;
 
+  DROP TABLE suplemento_favorito;
+
   CREATE TABLE suplemento_favorito(
   id_favorito SERIAL PRIMARY KEY,
   fk_usuario int NOT NULL,
   fk_suplemento int NOT NULL,
-  data_adicao timestamp
+  data_adicao timestamp,
+  constraint fk_usuario foreign key(fk_usuario) references usuario(id_usuario)
   );
   
   INSERT INTO suplemento_favoritos (id_usuario, id_suplemento, data_adicao)
@@ -166,4 +169,3 @@ CREATE TABLE alimentos(
   fk_calorias_base decimal(8,2),
   fk_proteinas_g decimal (6,2)
 );
-
